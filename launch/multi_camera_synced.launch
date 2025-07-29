@@ -1,0 +1,174 @@
+<launch>
+    <arg name="camera_name" default="ob_camera"/>
+    <arg name="3d_sensor" default="femto_bolt"/>
+    <arg name="camera1_prefix" default="01"/>
+    <arg name="camera2_prefix" default="02"/>
+    <arg name="camera3_prefix" default="03"/>
+    <arg name="camera1_usb_port" default="2-4.2"/>
+    <arg name="camera2_usb_port" default="2-4.1"/>
+    <arg name="camera3_usb_port" default="2-4.4"/>
+
+    <arg name="device_num" default="3"/>
+    <include file="$(find orbbec_camera)/launch/$(arg 3d_sensor).launch">
+        <arg name="camera_name" value="$(arg camera_name)_$(arg camera1_prefix)"/>
+        <arg name="usb_port" value="$(arg camera1_usb_port)"/>
+        <arg name="device_num" value="$(arg device_num)"/>
+        <arg name="sync_mode" default="software_triggering"/>
+        <arg name="trigger_out_enabled" default="true"/>
+        <arg name="connection_delay"        value="100"/>
+        <arg name="publish_tf"              value="true"/>
+        <arg name="enable_frame_sync"       value="true"/>
+        
+        <!-- Color camera parameters -->
+        <arg name="color_width"             value="1280"/>
+        <arg name="color_height"            value="720"/>
+        <arg name="color_fps"               value="15"/>
+        <!-- <arg name="enable_color"            value="true"/> -->
+        <!-- <arg name="enable_color_auto_exposure" value="true"/> -->
+        
+        <!-- Depth camera parameters -->
+        <arg name="depth_width"             value="640"/>
+        <arg name="depth_height"            value="576"/>
+        <arg name="depth_fps"               value="15"/>
+        <arg name="enable_depth"            value="true"/>
+        
+        <!-- IR camera parameters -->
+        <arg name="enable_ir"               value="true"/>
+        <arg name="enable_ir_auto_exposure" value="true"/>
+        
+        <!-- Point cloud parameters -->
+        <arg name="enable_point_cloud"      value="true"/>
+        <arg name="enable_colored_point_cloud" value="true"/>
+        <arg name="ordered_pc"              value="false"/>
+        <arg name="align_mode"              value="SW"/>
+        
+        <!-- Enable noise removal filter for better point cloud quality -->
+        <arg name="enable_noise_removal_filter" value="true"/>
+        <arg name="noise_removal_filter_min_diff" value="10"/>
+        <arg name="noise_removal_filter_max_size" value="50"/>
+    </include>
+
+    <include file="$(find orbbec_camera)/launch/$(arg 3d_sensor).launch">
+        <arg name="camera_name" value="$(arg camera_name)_$(arg camera2_prefix)"/>
+        <arg name="usb_port" value="$(arg camera2_usb_port)"/>
+        <arg name="device_num" value="$(arg device_num)"/>
+        <arg name="sync_mode" default="software_triggering"/>
+        <arg name="trigger_out_enabled" default="true"/>
+        <arg name="connection_delay"        value="100"/>
+        <arg name="publish_tf"              value="true"/>
+        <arg name="enable_frame_sync"       value="true"/>
+        
+        <!-- Color camera parameters -->
+        <arg name="color_width"             value="1280"/>
+        <arg name="color_height"            value="720"/>
+        <arg name="color_fps"               value="15"/>
+        <!-- <arg name="enable_color"            value="true"/> -->
+        <!-- <arg name="enable_color_auto_exposure" value="true"/> -->
+        
+        <!-- Depth camera parameters -->
+        <arg name="depth_width"             value="640"/>
+        <arg name="depth_height"            value="576"/>
+        <arg name="depth_fps"               value="15"/>
+        <arg name="enable_depth"            value="true"/>
+        
+        <!-- IR camera parameters -->
+        <arg name="enable_ir"               value="true"/>
+        <arg name="enable_ir_auto_exposure" value="true"/>
+        
+        <!-- Point cloud parameters -->
+        <arg name="enable_point_cloud"      value="true"/>
+        <arg name="enable_colored_point_cloud" value="true"/>
+        <arg name="ordered_pc"              value="false"/>
+        <arg name="align_mode"              value="SW"/>
+        
+        <!-- Enable noise removal filter for better point cloud quality -->
+        <arg name="enable_noise_removal_filter" value="true"/>
+        <arg name="noise_removal_filter_min_diff" value="10"/>
+        <arg name="noise_removal_filter_max_size" value="50"/>
+    </include>
+
+    <include file="$(find orbbec_camera)/launch/$(arg 3d_sensor).launch">
+        <arg name="camera_name" value="$(arg camera_name)_$(arg camera3_prefix)"/>
+        <arg name="usb_port" value="$(arg camera3_usb_port)"/>
+        <arg name="device_num" value="$(arg device_num)"/>
+        <arg name="sync_mode" default="software_triggering"/>
+        <arg name="trigger_out_enabled" default="true"/>
+        <arg name="connection_delay"        value="100"/>
+        <arg name="publish_tf"              value="true"/>
+        <arg name="enable_frame_sync"       value="true"/>
+        
+        <!-- Color camera parameters -->
+        <arg name="color_width"             value="1280"/>
+        <arg name="color_height"            value="720"/>
+        <arg name="color_fps"               value="15"/>
+        <!-- <arg name="enable_color"            value="true"/> -->
+        <!-- <arg name="enable_color_auto_exposure" value="true"/> -->
+        
+        <!-- Depth camera parameters -->
+        <arg name="depth_width"             value="640"/>
+        <arg name="depth_height"            value="576"/>
+        <arg name="depth_fps"               value="15"/>
+        <arg name="enable_depth"            value="true"/>
+        
+        <!-- IR camera parameters -->
+        <arg name="enable_ir"               value="true"/>
+        <arg name="enable_ir_auto_exposure" value="true"/>
+        
+        <!-- Point cloud parameters -->
+        <arg name="enable_point_cloud"      value="true"/>
+        <arg name="enable_colored_point_cloud" value="true"/>
+        <arg name="ordered_pc"              value="false"/>
+        <arg name="align_mode"              value="SW"/>
+        
+        <!-- Enable noise removal filter for better point cloud quality -->
+        <arg name="enable_noise_removal_filter" value="true"/>
+        <arg name="noise_removal_filter_min_diff" value="10"/>
+        <arg name="noise_removal_filter_max_size" value="50"/>
+    </include>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_01_tf"
+        args="0 0 0 0 0 0 1 base_link ob_camera_01_link" />
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_02_tf"
+        args="0.6032 0.8206 0.8051 0.5595 0.0565 -0.4475 0.6923 base_link ob_camera_02_link" />
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_03_tf"
+        args="0.4044 0.1864 0.5477 0.3864 0.3194 -0.1559 0.8521 base_link ob_camera_03_link" />
+
+    <!-- args are: x y z qx qy qz qw -->
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="camera_01_tf"
+        args="0.22605861195798455 0.3534311460097338 1.1787609190036847 0.31641549223500537 0.8947551649638638 -0.29283171505897926 0.11637876825170969 base_link ob_camera_01_link" />
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_02_tf"
+        args="0.29903529532417095 0.6882315682851283 -0.07343862217539199 0.09912486617487902 -0.6050725993468499 0.7377909072996156 0.2777731238722205 base_link ob_camera_02_link" />
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_03_tf"
+        args="0.04440754811936287 0.34461286687881487 0.49671639042841154 0.26830776013080326 0.7348455008177885 -0.5123747438544337 -0.35522147489275824 base_link ob_camera_03_link" /> -->
+
+    <!-- Arguments for concatenator-->
+    <arg name="target_frame" default="base_link" />
+    <arg name="cloud_in1" default="/ob_camera_01/depth_registered/points" />
+    <arg name="cloud_in2" default="/ob_camera_02/depth_registered/points" />
+    <arg name="cloud_in3" default="/ob_camera_03/depth_registered/points" />
+    <arg name="cloud_out" default="cloud_concatenated" />
+
+    <!-- Launch PointCloud2 concatenator node -->
+    <node pkg="pointcloud_concatenate" type="pointcloud_concatenate_node" name="pc_concat" output="screen">
+        <param name="target_frame" value="$(arg target_frame)" />    
+        <param name="clouds" value="3" />
+        <param name="hz" value="10" />
+        <remap from="cloud_in1" to="$(arg cloud_in1)" />
+        <remap from="cloud_in2" to="$(arg cloud_in2)" />
+        <remap from="cloud_in3" to="$(arg cloud_in3)" />
+        <remap from="cloud_out" to="$(arg cloud_out)" />
+    </node>
+
+    <!-- PointCloud filters. requires: ros-noetic-sensor-filters and ros-noetic-point-cloud2-filters -->
+    <node name="pcl_filter" pkg="sensor_filters" type="pointcloud2_filter_chain" output="screen">
+        <rosparam command="load" file="$(find idmp_ros)/config/orbbecFilterChain.yaml" />
+        <remap from="~input" to="/cloud_concatenated" />
+        <remap from="~output" to="/camera/depth_registered/points_filt" />
+    </node>
+    
+
+</launch>

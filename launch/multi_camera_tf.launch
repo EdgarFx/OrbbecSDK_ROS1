@@ -1,0 +1,13 @@
+<launch>
+    <!-- ob_camera_01_link 是 base_link -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_01_tf"
+        args="0 0 0 0 0 0 1 base_link ob_camera_01_link" />
+
+    <!-- ob_camera_02_link 相对于 ob_camera_01_link -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_02_tf"
+        args="0.6032 0.8206 0.8051 0.5595 0.0565 -0.4475 0.6923 base_link ob_camera_02_link" />
+
+    <!-- ob_camera_03_link 相对于 ob_camera_01_link -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_03_tf"
+        args="0.4044 0.1864 0.5477 0.3864 0.3194 -0.1559 0.8521 base_link ob_camera_03_link" />
+</launch>
