@@ -146,7 +146,7 @@ Here is the device support list of main branch (v1.x) and v2-main branch (v2.x):
   - [Start the Camera](#start-the-camera)
   - [Select Topics and Control the Camera](#select-topics-and-control-the-camera)
   - [Usage](#usage)
-    - [Launch parameters](#launch-parameters)
+    - [Launch Parameters](#launch-parameters)
     - [All available service for camera control](#all-available-service-for-camera-control)
     - [All available topics](#all-available-topics)
     - [Network device enumeration](#network-device-enumeration)
@@ -229,10 +229,8 @@ Get the source code:
 
 ```bash
 cd ~/ros_ws/src
-git clone https://github.com/orbbec/OrbbecSDK_ROS1.git
+git clone https://github.com/EdgarFx/OrbbecSDK_ROS1.git
 roscd orbbec_camera
-git checkout v2-main
-git branch  #Check whether the branch switch is successful
 ```
 
 Build the package:
