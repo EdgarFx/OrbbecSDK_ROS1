@@ -135,16 +135,6 @@
     <node pkg="tf2_ros" type="static_transform_publisher" name="camera_03_tf"
         args="0.4044 0.1864 0.5477 0.3864 0.3194 -0.1559 0.8521 base_link ob_camera_03_link" />
 
-    <!-- args are: x y z qx qy qz qw -->
-    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="camera_01_tf"
-        args="0.22605861195798455 0.3534311460097338 1.1787609190036847 0.31641549223500537 0.8947551649638638 -0.29283171505897926 0.11637876825170969 base_link ob_camera_01_link" />
-
-    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_02_tf"
-        args="0.29903529532417095 0.6882315682851283 -0.07343862217539199 0.09912486617487902 -0.6050725993468499 0.7377909072996156 0.2777731238722205 base_link ob_camera_02_link" />
-
-    <node pkg="tf2_ros" type="static_transform_publisher" name="camera_03_tf"
-        args="0.04440754811936287 0.34461286687881487 0.49671639042841154 0.26830776013080326 0.7348455008177885 -0.5123747438544337 -0.35522147489275824 base_link ob_camera_03_link" /> -->
-
     <!-- Arguments for concatenator-->
     <arg name="target_frame" default="base_link" />
     <arg name="cloud_in1" default="/ob_camera_01/depth_registered/points" />
